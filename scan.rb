@@ -5,7 +5,7 @@ require 'restclient'
 
 administration, *other_args = ARGV
 
-Dotenv.load(".env", ".#{administration}.env")
+Dotenv.load(File.dirname(__FILE__) + "/.env", File.dirname(__FILE__) + "/.#{administration}.env")
 
 target_file = other_args.join " "
 file_name = File.basename(target_file)

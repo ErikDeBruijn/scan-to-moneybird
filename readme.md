@@ -47,6 +47,13 @@ done
 1. Save the automator workflow.
 1. Test it by dropping a PDF into the folder. It should disappear. For debugging purposes, you can look in `/path/to/scan-to-moneybird/` to figure out what happened if it doesn't show up.
 
+Tips and tricks
+===============
+You can also call scan.rb from the command line as follows:
+```
+/path/to/scan.rb foobar adm/invoice-123.pdf
+```
+
 Contributing
 ============
 
