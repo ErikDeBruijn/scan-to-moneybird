@@ -9,10 +9,9 @@ Dotenv.load(".env", ".#{administration}.env")
 
 target_file = other_args.join " "
 file_name = File.basename(target_file)
-puts "Adding #{target_file} to administratie #{ENV['MONEYBIRD_ADMINISTRATION']}"
+puts "Adding #{target_file} to administration #{ENV['MONEYBIRD_ADMINISTRATION']}"
 
-data = {:typeless_document=>{:reference=>"Scan 2 Moneybird"}}
-
+data = {:typeless_document=>{:reference=>"#{file_name} Scan-2-Moneybird"}}
 
 response = RestClient.post "https://moneybird.com/api/v2/#{ENV['MONEYBIRD_ADMINISTRATION']}/documents/typeless_documents.json", data, { authorization: "Bearer #{ENV['MONEYBIRD_TOKEN']}", content_type: :json, accept: :json }
 document = JSON.parse(response)

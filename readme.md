@@ -1,5 +1,5 @@
-What is the purpose of Scan-to-moneybird
-========================================
+What is the purpose of Scan-to-moneybird?
+=========================================
 
 Make paying bills as frictionless as possible.
 
@@ -18,6 +18,8 @@ How does it work?
 Setup
 =====
 
+1. Create your Moneybird token, only document access is needed. You should create a token per administration.
+1. Find your administration in the URL of Moneybird.
 1. Create a `.env` file called `.foobar.env` if you company is named Foo Bar. Include at least these variables:
 ```
 MONEYBIRD_TOKEN=c94747b2c470434747b2b2c447b2c4a6a043de47b2c4a6a91cc
