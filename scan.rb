@@ -9,7 +9,8 @@ Dotenv.load(File.dirname(__FILE__) + "/.env", File.dirname(__FILE__) + "/.#{admi
 
 target_file = other_args.join " "
 file_name = File.basename(target_file)
-puts "Adding #{target_file} to administration #{ENV['MONEYBIRD_ADMINISTRATION']}"
+pp ARGV
+puts "Adding #{target_file} to #{administration} administration (ID=#{ENV['MONEYBIRD_ADMINISTRATION']})..."
 
 data = {:typeless_document=>{:reference=>"#{file_name} Scan-2-Moneybird"}}
 
@@ -21,6 +22,10 @@ response = RestClient.post "https://moneybird.com/api/v2/#{ENV['MONEYBIRD_ADMINI
 
 if(response.code >= 200 && response.code < 300)
   mv_to_path = "#{ENV['FINISHED_PATH']}/#{file_name}"
-  puts "OK. Moving file to: #{mv_to_path}"
+  puts "UPLOAD_OK. Moving file to: #{mv_to_path}"
   File.rename target_file, mv_to_path
+else
+	puts "ERROR: HTTP response from MoneyBird was #{response.code}!"
+	pp response
+  	exit(1)
 end
